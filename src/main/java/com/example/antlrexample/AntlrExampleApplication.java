@@ -3,6 +3,8 @@ package com.example.antlrexample;
 import antrl.calculatorLexer;
 import antrl.calculatorParser;
 import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStreams;
+import org.antlr.v4.runtime.CodePointCharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
@@ -15,7 +17,7 @@ import java.io.IOException;
 public class AntlrExampleApplication {
 
 	private static ParseTree parse(String progam) {
-		final ANTLRInputStream input = new ANTLRInputStream(progam);
+		final CodePointCharStream input = CharStreams.fromString(progam);
 		final antrl.calculatorLexer lexer = new calculatorLexer(input);
 		final CommonTokenStream tokens = new CommonTokenStream(lexer);
 		final antrl.calculatorParser parser = new calculatorParser(tokens);
@@ -42,7 +44,5 @@ public class AntlrExampleApplication {
 		System.out.println(result);
 		System.out.println("=======");
 	}
-
-
 
 }
