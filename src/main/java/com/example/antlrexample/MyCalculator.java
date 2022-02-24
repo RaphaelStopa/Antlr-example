@@ -8,7 +8,6 @@ import org.antlr.v4.runtime.tree.ParseTreeProperty;
 public class MyCalculator extends antrl.calculatorBaseListener {
 
     ParseTreeProperty<Integer> values = new ParseTreeProperty();
-
     public void setValue(ParseTree node, int value) {values.put(node, value);}
 
     public int getValue(ParseTree node) {return  values.get(node);}
